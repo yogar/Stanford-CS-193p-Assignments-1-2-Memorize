@@ -9,7 +9,6 @@ import SwiftUI
 
 // Game view
 struct EmojiMemoryGameView: View {
-    
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {

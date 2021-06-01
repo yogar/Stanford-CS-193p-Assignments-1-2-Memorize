@@ -8,16 +8,19 @@
 import Foundation
 
 class EmojiMemoryGame: ObservableObject {
-    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame(with: selectedTheme)
-    // @Published — property wrapper, calls objectWillChange() every time when model changes
+    @Published private var model = EmojiMemoryGame.createMemoryGame(with: selectedTheme)
     
-    static var themes: Set<Theme> = [
+    init() {
+
+    }
+    
+    static var themes: Array<Theme> = [
         Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"),
-        Theme(name: "Emotions",emojis: ["😛","😘","😒","😫","😡","🤔"], numberOfPairsOfCards: nil, color: "yellow"),
+        Theme(name: "Emotions",emojis: ["😛","😘","😒","😫","😡","🤔"], numberOfPairsOfCards: 5, color: "yellow"),
         Theme(name: "Buildings",emojis: ["🏢","🏦","🏛","⛩","🕍","🏠"], numberOfPairsOfCards: 6, color: "gray"),
-        Theme(name: "Symbols",emojis: ["⚪️","🔳","▪️","🔶","🔘","👁‍🗨"], numberOfPairsOfCards: 6, color: "pink"),
+        Theme(name: "Symbols",emojis: ["⚪️","🔳","▪️","🔶","🔘","👁‍🗨"], numberOfPairsOfCards: 5, color: "pink"),
         Theme(name: "Animals",emojis: ["🐯","🐸","🐺","🦎","🐁","🐙"], numberOfPairsOfCards: 6, color: "red"),
-        Theme(name: "Flags",emojis: ["🇦🇹","🇧🇾","🇦🇼","🇭🇳","🇯🇲","🇭🇰"], numberOfPairsOfCards: nil, color: "indigo")
+        Theme(name: "Flags",emojis: ["🇦🇹","🇧🇾","🇦🇼","🇭🇳","🇯🇲","🇭🇰"], numberOfPairsOfCards: 5, color: "indigo")
         ]
     
     static func selectTheme() -> Theme {
@@ -27,15 +30,20 @@ class EmojiMemoryGame: ObservableObject {
     static var selectedTheme = selectTheme()
     
     // A struct for game theme concept
-    struct Theme: Hashable {
+    struct Theme: Encodable {
         let name: String
         let emojis: Array<String>
-        let numberOfPairsOfCards: Int?
+        let numberOfPairsOfCards: Int
         let color: String
     }
     
     private static func createMemoryGame(with theme: Theme) -> MemoryGame<String> {
-        return MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards ?? Int.random(in: 2...6)) {pairIndex in
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(EmojiMemoryGame.selectedTheme)
+        if let data = data {
+            print(String(data: data, encoding: .utf8)!)
+        }
+        return MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) {pairIndex in
             return theme.emojis[pairIndex]
         }
     }
