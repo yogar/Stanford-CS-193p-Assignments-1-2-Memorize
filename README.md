@@ -1,7 +1,9 @@
-# Stanford-CS-193p-Assignments-1-2-Memorize
+# Stanford-CS-193p-Memorize
 
-This repository is my work in progress on assignments 1-2 «Memorizie» at Stanford University's course CS193p. Lectures are available for everyone at https://cs193p.sites.stanford.edu/
- 
+This repository is my work in progress on assignments 1,2,5 «Memorizie» at Stanford University's course CS193p. Lectures are available for everyone at https://cs193p.sites.stanford.edu/
+
+## Assignments 1-2
+
 - [x] Currently the cards appear in a predictable order (the matches are always side-by-side, making the game very easy). Shuffle the cards.
 - [x] Our cards are currently arranged in a single row (we’ll fix that next week). That’s making our cards really tall and skinny (especially in portrait) which doesn’t look very good. Force each card to have a width to height ratio of 2:3 (this will result in empty space above and/or below your cards, which is fine).
 - [x] Have your game start up with a random number of pairs of cards between 2 pairs and 5 pairs.
@@ -14,3 +16,8 @@ This repository is my work in progress on assignments 1-2 «Memorizie» at Stanf
 - [x] Keep score in your game by giving 2 points for every match and penalizing 1 point for every previously seen card that is involved in a mismatch.
 - [x] Display the score in your UI in whatever way you think looks best.
 - [x] Your UI should work in portrait or landscape on any iOS device. The cards can have any aspect ratio you’d like. This probably will not require any work on your part (that’s part of the power of SwiftUI), but be sure to continue to experiment with running on different simulators in Xcode to be sure.
+
+## Assignment 5
+
+- [x] Removethe“randomnumberofcards”themeoptionfromyourMemorizegame. Each theme will now have its own specific, pre-defined number of cards. In other words, how many cards are in a game is part of the theme for that game and it can no longer be “random”.
+- [x] Everytimeanewgamestarts,printaJSONrepresentationofthethemebeingused for that game out to the console. All elements of the theme (its name, the emojis to choose from, how many pairs of cards to show and the color of the theme) must be included.
