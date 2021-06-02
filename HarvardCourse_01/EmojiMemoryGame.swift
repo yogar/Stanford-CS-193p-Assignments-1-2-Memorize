@@ -8,62 +8,38 @@
 import Foundation
 
 class EmojiMemoryGame: ObservableObject {
-    @Published private var model = EmojiMemoryGame.createMemoryGame(with: selectedTheme)
+    @Published private var memoryGame: MemoryGame<String>
+    var theme: Theme
     
-    init() {
-
-    }
-    
-    static var themes: Array<Theme> = [
-        Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"),
-        Theme(name: "Emotions",emojis: ["😛","😘","😒","😫","😡","🤔"], numberOfPairsOfCards: 5, color: "yellow"),
-        Theme(name: "Buildings",emojis: ["🏢","🏦","🏛","⛩","🕍","🏠"], numberOfPairsOfCards: 6, color: "gray"),
-        Theme(name: "Symbols",emojis: ["⚪️","🔳","▪️","🔶","🔘","👁‍🗨"], numberOfPairsOfCards: 5, color: "pink"),
-        Theme(name: "Animals",emojis: ["🐯","🐸","🐺","🦎","🐁","🐙"], numberOfPairsOfCards: 6, color: "red"),
-        Theme(name: "Flags",emojis: ["🇦🇹","🇧🇾","🇦🇼","🇭🇳","🇯🇲","🇭🇰"], numberOfPairsOfCards: 5, color: "indigo")
-        ]
-    
-    static func selectTheme() -> Theme {
-        return themes.randomElement()!
-    }
-    
-    static var selectedTheme = selectTheme()
-    
-    // A struct for game theme concept
-    struct Theme: Encodable {
-        let name: String
-        let emojis: Array<String>
-        let numberOfPairsOfCards: Int
-        let color: String
-    }
-    
-    private static func createMemoryGame(with theme: Theme) -> MemoryGame<String> {
+    init(with theme: Theme) {
+        self.theme = theme
         let encoder = JSONEncoder()
-        let data = try? encoder.encode(EmojiMemoryGame.selectedTheme)
+        let data = try? encoder.encode(theme)
         if let data = data {
             print(String(data: data, encoding: .utf8)!)
         }
-        return MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) {pairIndex in
+        memoryGame = MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) {pairIndex in
             return theme.emojis[pairIndex]
         }
     }
 
     // MARK: Access to the Model
     var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+        return memoryGame.cards
     }
     
     var score: Int {
-        return model.score
+        return memoryGame.score
     }
     
     // MARK: Intent(s)
     func choose(card: MemoryGame<String>.Card) {
-        return model.choose(card: card)
+        return memoryGame.choose(card: card)
     }
     
     func resetGame() {
-        EmojiMemoryGame.selectedTheme = EmojiMemoryGame.selectTheme()
-        model = EmojiMemoryGame.createMemoryGame(with: EmojiMemoryGame.selectedTheme)
+        memoryGame = MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) {pairIndex in
+            theme.emojis[pairIndex]
+        }
     }
 }

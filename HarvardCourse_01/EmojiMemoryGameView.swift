@@ -32,7 +32,7 @@ struct EmojiMemoryGameView: View {
                     }
                     .padding(5)
                 }
-                .foregroundColor(Color(EmojiMemoryGame.selectedTheme.color))
+                .foregroundColor(Color(viewModel.theme.color))
             }
 //        }
     }
@@ -86,15 +86,4 @@ struct CardView: View {
     
     // MARK: – Drawing Constants
     private let fontScaleFactor: CGFloat = 0.7
-}
-
-    
-
-struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        let game = EmojiMemoryGame()
-        game.choose(card: game.cards[0])
-        return EmojiMemoryGameView(viewModel: game)
-    }
 }

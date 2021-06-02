@@ -19,5 +19,22 @@ This repository is my work in progress on assignments 1,2,5 «Memorizie» at Sta
 
 ## Assignment 5
 
-- [x] Removethe“randomnumberofcards”themeoptionfromyourMemorizegame. Each theme will now have its own specific, pre-defined number of cards. In other words, how many cards are in a game is part of the theme for that game and it can no longer be “random”.
-- [x] Everytimeanewgamestarts,printaJSONrepresentationofthethemebeingused for that game out to the console. All elements of the theme (its name, the emojis to choose from, how many pairs of cards to show and the color of the theme) must be included.
+- [x] Remove the “random number of cards” theme option from your Memorize game. Each theme will now have its own specific, pre-defined number of cards. In other words, how many cards are in a game is part of the theme for that game and it can no longer be “random”.
+- [x] Every time a new game starts, print a JSON representation of the theme being used for that game out to the console. All elements of the theme (its name, the emojis to choose from, how many pairs of cards to show and the color of the theme) must be included.
+
+
+## Assignment 6
+- [ ] Your Memorize application should now show a “theme chooser” UI when it launches. See attached images for examples, but you can be creative with how you show each theme.
+- [ ] Use a List to display the themes.
+- [ ] Each row in the List shows the name of the theme, the color of the theme, how
+many cards in the theme and some sampling of the emoji in the theme.
+- [ ] Touching on a theme in the List navigates (i.e. the List is in a NavigationView) to playing a game with that theme.
+- [ ] While playing a game, the name of the theme should be on screen somewhere and you should also continue to support existing functionality like score, new game, etc. (but you may rearrange the UI if you wish).
+- [ ] It is okay if going from playing a game back to the chooser and then back to the game in progress restarts the game, though savvy implementations would probably not do that (except when the theme in question is modified (see below) since that would almost certainly want to restart the game).
+- [ ]  Provide some UI to add a new theme to the List in your chooser.
+- [ ] The chooser must support an Edit Mode where you can delete themes and where you can access some UI (i.e. a button or image in each row) which will bring up a Theme Editor UI for that theme modally (i.e. via sheet or popover).
+- [ ] The Theme Editor must use a Form.
+- [ ] In the Theme Editor, allow the user to edit the name of the theme, to add emoji to the theme, to remove emoji from the theme and to specify how many cards are in the theme. (It is Extra Credit to be able to edit the color of the theme.)
+- [ ] The themes must be persistent (i.e. relaunching your app should not cause all the theme editing you’ve done to be lost).
+- [ ] Your UI should work and look nice on both iPhone and iPad.
+- [ ] Get your application work on a physical iOS device of your choice.

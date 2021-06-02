@@ -13,6 +13,9 @@
 		5A4390C525F6543800A92D72 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4390C425F6543800A92D72 /* GridLayout.swift */; };
 		5A4390C825F8CF4300A92D72 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4390C725F8CF4300A92D72 /* Array+Identifiable.swift */; };
 		5A4390CB25FAACC000A92D72 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4390CA25FAACC000A92D72 /* Array+Only.swift */; };
+		5ACB38B226667FAA00B211F4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ACB38B126667FAA00B211F4 /* README.md */; };
+		5ACB38B52666831700B211F4 /* ThemeChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38B42666831700B211F4 /* ThemeChooserView.swift */; };
+		5ACB38B82666838100B211F4 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38B72666838100B211F4 /* ThemeChooser.swift */; };
 		5AE540B426064D51000605A3 /* View+Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE540B326064D51000605A3 /* View+Print.swift */; };
 		A54DB0AD25EA547A004FE8BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DB0AC25EA547A004FE8BC /* AppDelegate.swift */; };
 		A54DB0AF25EA547A004FE8BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DB0AE25EA547A004FE8BC /* SceneDelegate.swift */; };
@@ -31,6 +34,9 @@
 		5A4390C425F6543800A92D72 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		5A4390C725F8CF4300A92D72 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		5A4390CA25FAACC000A92D72 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		5ACB38B126667FAA00B211F4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		5ACB38B42666831700B211F4 /* ThemeChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooserView.swift; sourceTree = "<group>"; };
+		5ACB38B72666838100B211F4 /* ThemeChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		5AE540B326064D51000605A3 /* View+Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Print.swift"; sourceTree = "<group>"; };
 		A54DB0A925EA547A004FE8BC /* HarvardCourse_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarvardCourse_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54DB0AC25EA547A004FE8BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 				A54DB0BA25EA547B004FE8BC /* Info.plist */,
 				A54DB0B425EA547B004FE8BC /* Preview Content */,
 				5AE540B326064D51000605A3 /* View+Print.swift */,
+				5ACB38B126667FAA00B211F4 /* README.md */,
+				5ACB38B42666831700B211F4 /* ThemeChooserView.swift */,
+				5ACB38B72666838100B211F4 /* ThemeChooser.swift */,
 			);
 			path = HarvardCourse_01;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 			files = (
 				A54DB0B925EA547B004FE8BC /* LaunchScreen.storyboard in Resources */,
 				A54DB0B625EA547B004FE8BC /* Preview Assets.xcassets in Resources */,
+				5ACB38B226667FAA00B211F4 /* README.md in Resources */,
 				A54DB0B325EA547B004FE8BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +190,8 @@
 				A5DCC46C25EBB360009E8B00 /* EmojiMemoryGame.swift in Sources */,
 				5A3B24FA2625A52900A8A244 /* Cardify.swift in Sources */,
 				5A4390C825F8CF4300A92D72 /* Array+Identifiable.swift in Sources */,
+				5ACB38B52666831700B211F4 /* ThemeChooserView.swift in Sources */,
+				5ACB38B82666838100B211F4 /* ThemeChooser.swift in Sources */,
 				5AE540B426064D51000605A3 /* View+Print.swift in Sources */,
 				5A3B24F72624A06D00A8A244 /* Pie.swift in Sources */,
 				5A4390C525F6543800A92D72 /* GridLayout.swift in Sources */,
