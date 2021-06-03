@@ -12,18 +12,7 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-//        Group {
             VStack {
-                HStack {
-                    Button(action: {
-                        withAnimation(.easeInOut(duration:0.5)) {
-                            self.viewModel.resetGame()
-                        }
-                    },label: { Text("New Game") })
-                    Spacer()
-                    Text("Score is \(viewModel.score)")
-                }
-                .padding(10)
                 Grid(viewModel.cards) {card in
                     CardView(card: card).onTapGesture {
                         withAnimation(Animation.easeInOut(duration: 0.5)) {
@@ -32,9 +21,21 @@ struct EmojiMemoryGameView: View {
                     }
                     .padding(5)
                 }
-                .foregroundColor(Color(viewModel.theme.color))
+                HStack {
+                    Text("\(viewModel.theme.name)")
+                    Spacer()
+                    Text("Score: \(viewModel.score)")
+                }
+                .padding(.horizontal)
             }
-//        }
+            .foregroundColor(Color(viewModel.theme.color))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    withAnimation(.easeInOut(duration:0.5)) {
+                        self.viewModel.resetGame()
+                    }
+                },label: { Text("New Game") })
+            )
     }
 }
 

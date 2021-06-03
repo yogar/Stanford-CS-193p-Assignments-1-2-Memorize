@@ -24,12 +24,12 @@ This repository is my work in progress on assignments 1,2,5 «Memorizie» at Sta
 
 
 ## Assignment 6
-- [ ] Your Memorize application should now show a “theme chooser” UI when it launches. See attached images for examples, but you can be creative with how you show each theme.
-- [ ] Use a List to display the themes.
-- [ ] Each row in the List shows the name of the theme, the color of the theme, how
+- [x] Your Memorize application should now show a “theme chooser” UI when it launches. See attached images for examples, but you can be creative with how you show each theme.
+- [x] Use a List to display the themes.
+- [x] Each row in the List shows the name of the theme, the color of the theme, how
 many cards in the theme and some sampling of the emoji in the theme.
-- [ ] Touching on a theme in the List navigates (i.e. the List is in a NavigationView) to playing a game with that theme.
-- [ ] While playing a game, the name of the theme should be on screen somewhere and you should also continue to support existing functionality like score, new game, etc. (but you may rearrange the UI if you wish).
+- [x] Touching on a theme in the List navigates (i.e. the List is in a NavigationView) to playing a game with that theme.
+- [х] While playing a game, the name of the theme should be on screen somewhere and you should also continue to support existing functionality like score, new game, etc. (but you may rearrange the UI if you wish).
 - [ ] It is okay if going from playing a game back to the chooser and then back to the game in progress restarts the game, though savvy implementations would probably not do that (except when the theme in question is modified (see below) since that would almost certainly want to restart the game).
 - [ ]  Provide some UI to add a new theme to the List in your chooser.
 - [ ] The chooser must support an Edit Mode where you can delete themes and where you can access some UI (i.e. a button or image in each row) which will bring up a Theme Editor UI for that theme modally (i.e. via sheet or popover).
