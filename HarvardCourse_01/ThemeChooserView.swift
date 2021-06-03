@@ -17,7 +17,14 @@ struct ThemeChooserView: View {
                     NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame(with: theme))
                                     .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
                     ) {
-                        Text("\(theme.name)")
+                        VStack(alignment: .leading) {
+                            Text("\(theme.name)")
+                                .font(Font.title)
+                                .foregroundColor(Color(theme.color))
+                            HStack {
+                                Text("\(theme.numberOfPairsOfCards) pairs of \(theme.emojis.joined())")
+                            }
+                        }
                     }
                 }
             }
