@@ -9,15 +9,10 @@ import Foundation
 
 class EmojiMemoryGame: ObservableObject {
     @Published private var memoryGame: MemoryGame<String>
-    var theme: Theme
+    private(set) var theme: Theme
     
     init(with theme: Theme) {
         self.theme = theme
-        let encoder = JSONEncoder()
-        let data = try? encoder.encode(theme)
-        if let data = data {
-            print(String(data: data, encoding: .utf8)!)
-        }
         memoryGame = MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) {pairIndex in
             return theme.emojis[pairIndex]
         }
