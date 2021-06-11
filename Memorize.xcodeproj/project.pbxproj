@@ -18,8 +18,6 @@
 		5ACB38B82666838100B211F4 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38B72666838100B211F4 /* ThemeChooser.swift */; };
 		5ACB38C126690EA000B211F4 /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38C026690EA000B211F4 /* ThemeEditor.swift */; };
 		5ACB38C426691D4F00B211F4 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38C326691D4F00B211F4 /* MemorizeApp.swift */; };
-		5ACB38CA266A12DF00B211F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38C8266A12DF00B211F4 /* AppDelegate.swift */; };
-		5ACB38CB266A12DF00B211F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB38C9266A12DF00B211F4 /* SceneDelegate.swift */; };
 		5AE540B426064D51000605A3 /* View+Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE540B326064D51000605A3 /* View+Print.swift */; };
 		A54DB0B125EA547A004FE8BC /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DB0B025EA547A004FE8BC /* EmojiMemoryGameView.swift */; };
 		A54DB0B325EA547B004FE8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54DB0B225EA547B004FE8BC /* Assets.xcassets */; };
@@ -41,8 +39,6 @@
 		5ACB38B72666838100B211F4 /* ThemeChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		5ACB38C026690EA000B211F4 /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
 		5ACB38C326691D4F00B211F4 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
-		5ACB38C8266A12DF00B211F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HarvardCourse_01/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		5ACB38C9266A12DF00B211F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = HarvardCourse_01/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
 		5AE540B326064D51000605A3 /* View+Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Print.swift"; sourceTree = "<group>"; };
 		A54DB0A925EA547A004FE8BC /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54DB0B025EA547A004FE8BC /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
@@ -85,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				5ACB38C326691D4F00B211F4 /* MemorizeApp.swift */,
-				5ACB38C8266A12DF00B211F4 /* AppDelegate.swift */,
-				5ACB38C9266A12DF00B211F4 /* SceneDelegate.swift */,
 				A54DB0B025EA547A004FE8BC /* EmojiMemoryGameView.swift */,
 				5A3B24F92625A52900A8A244 /* Cardify.swift */,
 				5A3B24F62624A06D00A8A244 /* Pie.swift */,
@@ -191,11 +185,9 @@
 				5ACB38C126690EA000B211F4 /* ThemeEditor.swift in Sources */,
 				A5DCC46925EBB0FA009E8B00 /* MemoryGame.swift in Sources */,
 				5A4390CB25FAACC000A92D72 /* Array+Only.swift in Sources */,
-				5ACB38CA266A12DF00B211F4 /* AppDelegate.swift in Sources */,
 				5ACB38C426691D4F00B211F4 /* MemorizeApp.swift in Sources */,
 				A54DB0B125EA547A004FE8BC /* EmojiMemoryGameView.swift in Sources */,
 				A5DCC46C25EBB360009E8B00 /* EmojiMemoryGame.swift in Sources */,
-				5ACB38CB266A12DF00B211F4 /* SceneDelegate.swift in Sources */,
 				5A3B24FA2625A52900A8A244 /* Cardify.swift in Sources */,
 				5A4390C825F8CF4300A92D72 /* Array+Identifiable.swift in Sources */,
 				5ACB38B52666831700B211F4 /* ThemeChooserView.swift in Sources */,
@@ -272,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -327,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -347,6 +339,7 @@
 				DEVELOPMENT_TEAM = 34NJBRFDU4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,6 +361,7 @@
 				DEVELOPMENT_TEAM = 34NJBRFDU4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

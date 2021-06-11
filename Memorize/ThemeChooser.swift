@@ -10,7 +10,7 @@ import Combine
 
 class ThemeChooser: ObservableObject {
     private var autosaveCancellable: AnyCancellable?
-    @Published private(set) var themes: Array<Theme> = []
+    @Published var themes: Array<Theme> = []
     
     init() {
         let defaultsKey = "MemorizeThemes"
@@ -42,16 +42,37 @@ class ThemeChooser: ObservableObject {
     func addTheme() {
         themes.append(Theme.init())
     }
+    
+    func rename(_ theme: Theme, with name: String) {
+        if let index = themes.firstIndex(matching: theme){
+            themes[index].name = name
+        }
+    }
+    
+    func addEmoji(_ emojisToAdd: String, to theme: Theme) {
+        if let index = themes.firstIndex(matching: theme) {
+            themes[index].emojis.append(contentsOf: (emojisToAdd.map { String($0) }))
+        }
+    }
+    
+    func removeEmoji(_ emojiToRemove: String,to theme: Theme) {
+        guard theme.emojis.count < 3 else { return }
+        if let themeIndex = themes.firstIndex(matching: theme){
+            if let emojiIndex = themes[themeIndex].emojis.firstIndex(of: emojiToRemove) {
+                themes[themeIndex].emojis.remove(at: emojiIndex)
+            }
+        }
+    }
 }
 
 struct Theme: Codable, Identifiable, Equatable {
     let id: UUID
-    let name: String
-    let emojis: Array<String>
-    let numberOfPairsOfCards: Int
-    let color: String
+    var name: String
+    var emojis: Array<String>
+    var numberOfPairsOfCards: Int
+    var color: String
     
-    init(id: UUID? = nil, name: String = "New Theme", emojis: Array<String> = ["😛","😘"], numberOfPairsOfCards: Int = 2, color: String = "red") {
+    init(id: UUID? = nil, name: String = "New Theme", emojis: Array<String> = ["😛","😘"], numberOfPairsOfCards: Int = 2, color: String = "indigo") {
         if let id = id {
             self.id = id
         } else {

@@ -10,10 +10,34 @@ import SwiftUI
 struct ThemeEditor: View {
     @EnvironmentObject var themeChooser: ThemeChooser
     @Binding var isShowing: Bool
-    @State var themeName: String = ""
-    
+    @Binding var theme: Theme
+    @State var emojisToAdd: String = ""
+
     var body: some View {
         VStack(spacing: 0) {
+            header
+            Form {
+                Section(header: Text("Theme name")) {
+                    nameEditor
+                }
+                Section(header: Text("Add emoji")) {
+                    emojiInput
+                }
+                Section(header: Text("Emojis")) {
+                    emojis
+                }
+                Section (header: Text("Card count")) {
+                    EmptyView()
+                }
+                Section (header: Text("Color")) {
+                    EmptyView()
+                }
+            }
+        }
+    }
+    
+    var header: some View {
+        VStack {
             ZStack {
                 Text("Theme Editor")
                     .font(.headline)
@@ -28,27 +52,53 @@ struct ThemeEditor: View {
                 }
             }
             Divider()
-            Form {
-                Section {
-//                    TextField("Theme Name",text: $themeName, onEditingChanged: { began in
-//                        if !began {
-//                            themeChooser.
-//                        }
-//                    })
+        }
+    }
+    
+    var nameEditor: some View {
+        TextField("Theme Name",text: $theme.name, onEditingChanged: { isEditing in
+            if !isEditing {
+                themeChooser.rename(theme, with: theme.name)
+            }
+        })
+    }
+    
+    var emojiInput: some View {
+        HStack {
+            TextField("Emoji",text: $emojisToAdd, onEditingChanged: { isEditing in
+                if !isEditing {
+//                    let emojisToAddArray = emojisToAdd.map { String($0)}
+                    if self.emojisToAdd != ""   {
+                        themeChooser.addEmoji(emojisToAdd, to: theme)
+                        emojisToAdd = ""
+                    }
                 }
-                Section {
-                    EmptyView()
+            })
+            Button("Add") {
+                if emojisToAdd != "" {
+                    themeChooser.addEmoji(self.emojisToAdd, to: theme)
+                    emojisToAdd = ""
                 }
-                Section {
-                    EmptyView()
-                }
-                Section {
-                    EmptyView()
-                }
-                Section {
-                    EmptyView()
-                }
+            }
+            .disabled(emojisToAdd == "")
+        }
+    }
+    
+    var emojis: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 40, maximum: 350), spacing: 5)]) {
+            ForEach(theme.emojis, id:\.self) { emoji in
+                Text(emoji).font(.system(size: 30))
+                    .onTapGesture {
+                        themeChooser.removeEmoji(emoji, to: theme)
+                    }
             }
         }
     }
 }
+
+//                    Grid(emojis.map { String($0) }, id: \.self) { emoji in
+//                        Text(emoji)
+//                            .onTapGesture {
+//                                themeChooser.removeEmoji(theme, emojiToRemove: emoji)
+//                            }
+//                        }
