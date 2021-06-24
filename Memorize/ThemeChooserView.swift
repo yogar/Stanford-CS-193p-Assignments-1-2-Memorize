@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThemeChooserView: View {
-    @EnvironmentObject var themeChooser: ThemeChooser
+    @EnvironmentObject var themeStore: ThemesStore
     @State private var editMode: EditMode = .inactive
     @State private var showThemeEditor = false
     @State private var selectedIndex: Int = 0
@@ -16,15 +16,15 @@ struct ThemeChooserView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(themeChooser.themes.indices, id: \.self) {index in
+                ForEach(themeStore.themes.indices, id: \.self) {index in
                         NavigationLink(destination:
-                                        EmojiMemoryGameView(viewModel: EmojiMemoryGame(with: themeChooser.themes[index]))
+                                        EmojiMemoryGameView(viewModel: EmojiMemoryGame(with: themeStore.themes[index]))
                                             .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)) {
                             HStack{
                                 if editMode == .active {
                                     Image(systemName: "pencil.circle.fill")
                                         .imageScale(.large)
-                                        .foregroundColor(Color(themeChooser.themes[index].color))
+                                        .foregroundColor(Color(themeStore.themes[index].color))
                                         .padding()
                                         .onTapGesture {
                                             selectedIndex = index
@@ -32,30 +32,30 @@ struct ThemeChooserView: View {
                                         }
                                 }
                                 VStack(alignment: .leading) {
-                                    Text("\(themeChooser.themes[index].name)")
+                                    Text("\(themeStore.themes[index].name)")
                                         .font(Font.title)
-                                        .foregroundColor(Color(themeChooser.themes[index].color))
+                                        .foregroundColor(Color(themeStore.themes[index].color))
                                     HStack {
-                                        Text("\(themeChooser.themes[index].numberOfPairsOfCards) pairs of \(themeChooser.themes[index].emojis.joined())")
+                                        Text("\(themeStore.themes[index].numberOfPairsOfCards) pairs of \(themeStore.themes[index].emojis.joined())")
                                     }
                                 }
                             }
                         }
                 }
                 .onDelete { indexSet in
-                    indexSet.map { themeChooser.themes[$0] }.forEach { theme in
-                        themeChooser.removeTheme(theme: theme)
+                    indexSet.map { themeStore.themes[$0] }.forEach { theme in
+                        themeStore.removeTheme(theme: theme)
                     }
                 }
             }
             .sheet(isPresented: $showThemeEditor, onDismiss: {editMode = .inactive}) {
-                ThemeEditor(isShowing: $showThemeEditor, theme: $themeChooser.themes[selectedIndex])
+                ThemeEditor(isShowing: $showThemeEditor, theme: $themeStore.themes[selectedIndex])
             }
             .navigationBarTitle("Memorize")
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        themeChooser.addTheme()
+                        themeStore.addTheme()
                     }, label: {
                         Image(systemName: "plus")
                             .imageScale(.large)

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MomrizeApp: App {
-    let themeChooser = ThemeChooser()
+    let themeChooser = ThemesStore()
     var body: some Scene {
         WindowGroup {
             ThemeChooserView().environmentObject(themeChooser)

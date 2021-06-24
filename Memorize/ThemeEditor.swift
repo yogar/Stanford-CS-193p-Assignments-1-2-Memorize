@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThemeEditor: View {
-    @EnvironmentObject var themeChooser: ThemeChooser
+    @EnvironmentObject var themeStore: ThemesStore
     @Binding var isShowing: Bool
     @Binding var theme: Theme
     @State var emojisToAdd: String = ""
@@ -58,7 +58,7 @@ struct ThemeEditor: View {
     var nameEditor: some View {
         TextField("Theme Name",text: $theme.name, onEditingChanged: { isEditing in
             if !isEditing {
-                themeChooser.rename(theme, with: theme.name)
+                themeStore.rename(theme, with: theme.name)
             }
         })
     }
@@ -69,14 +69,14 @@ struct ThemeEditor: View {
                 if !isEditing {
 //                    let emojisToAddArray = emojisToAdd.map { String($0)}
                     if self.emojisToAdd != ""   {
-                        themeChooser.addEmoji(emojisToAdd, to: theme)
+                        themeStore.addEmoji(emojisToAdd, to: theme)
                         emojisToAdd = ""
                     }
                 }
             })
             Button("Add") {
                 if emojisToAdd != "" {
-                    themeChooser.addEmoji(self.emojisToAdd, to: theme)
+                    themeStore.addEmoji(self.emojisToAdd, to: theme)
                     emojisToAdd = ""
                 }
             }
@@ -89,12 +89,13 @@ struct ThemeEditor: View {
             ForEach(theme.emojis, id:\.self) { emoji in
                 Text(emoji).font(.system(size: 30))
                     .onTapGesture {
-                        themeChooser.removeEmoji(emoji, to: theme)
+                        themeStore.removeEmoji(emoji, to: theme)
                     }
             }
         }
     }
 }
+
 
 //                    Grid(emojis.map { String($0) }, id: \.self) { emoji in
 //                        Text(emoji)

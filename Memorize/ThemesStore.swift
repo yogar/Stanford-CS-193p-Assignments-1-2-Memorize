@@ -1,5 +1,5 @@
 //
-//  ThemeChooser.swift
+//  ThemesStore.swift
 //  HarvardCourse_01
 //
 //  Created by Егор Пехота on 01.06.2021.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ThemeChooser: ObservableObject {
+class ThemesStore: ObservableObject {
     private var autosaveCancellable: AnyCancellable?
     @Published var themes: Array<Theme> = []
     
@@ -52,6 +52,13 @@ class ThemeChooser: ObservableObject {
     func addEmoji(_ emojisToAdd: String, to theme: Theme) {
         if let index = themes.firstIndex(matching: theme) {
             themes[index].emojis.append(contentsOf: (emojisToAdd.map { String($0) }))
+            var uniqueEmojis = Array<String>()
+            for emoji in themes[index].emojis {
+                if !uniqueEmojis.contains(emoji) {
+                    uniqueEmojis.append(emoji)
+                }
+            }
+            themes[index].emojis = uniqueEmojis
         }
     }
     

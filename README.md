@@ -1,6 +1,6 @@
 # Stanford-CS-193p-Memorize
 
-This repository is my work in progress on assignments 1,2,5 «Memorizie» at Stanford University's course CS193p. Lectures are available for everyone at https://cs193p.sites.stanford.edu/
+This repository is my work in progress on assignments 1,2,5,6 «Memorize» at Stanford University's course CS193p. Lectures are available for everyone at https://cs193p.sites.stanford.edu/
 
 ## Assignments 1-2
 
@@ -12,7 +12,7 @@ This repository is my work in progress on assignments 1,2,5 «Memorizie» at Sta
 - [x] Support at least 6 different themes in your game.
 - [x] A new theme should be able to be added to your game with a single line of code.
 - [x] Add a “New Game” button to your UI which begins a brand new game. This new game should have a randomly chosen theme. You can put this button anywhere you think looks best in your UI.
-- [ ] Show the theme’s name somewhere in your UI.
+- [x] Show the theme’s name somewhere in your UI.
 - [x] Keep score in your game by giving 2 points for every match and penalizing 1 point for every previously seen card that is involved in a mismatch.
 - [x] Display the score in your UI in whatever way you think looks best.
 - [x] Your UI should work in portrait or landscape on any iOS device. The cards can have any aspect ratio you’d like. This probably will not require any work on your part (that’s part of the power of SwiftUI), but be sure to continue to experiment with running on different simulators in Xcode to be sure.
@@ -29,12 +29,12 @@ This repository is my work in progress on assignments 1,2,5 «Memorizie» at Sta
 - [x] Each row in the List shows the name of the theme, the color of the theme, how
 many cards in the theme and some sampling of the emoji in the theme.
 - [x] Touching on a theme in the List navigates (i.e. the List is in a NavigationView) to playing a game with that theme.
-- [х] While playing a game, the name of the theme should be on screen somewhere and you should also continue to support existing functionality like score, new game, etc. (but you may rearrange the UI if you wish).
+- [x] While playing a game, the name of the theme should be on screen somewhere and you should also continue to support existing functionality like score, new game, etc. (but you may rearrange the UI if you wish).
 - [x] It is okay if going from playing a game back to the chooser and then back to the game in progress restarts the game, though savvy implementations would probably not do that (except when the theme in question is modified (see below) since that would almost certainly want to restart the game).
-- [ ]  Provide some UI to add a new theme to the List in your chooser.
-- [ ] The chooser must support an Edit Mode where you can delete themes and where you can access some UI (i.e. a button or image in each row) which will bring up a Theme Editor UI for that theme modally (i.e. via sheet or popover).
-- [ ] The Theme Editor must use a Form.
+- [x] Provide some UI to add a new theme to the List in your chooser.
+- [х] The chooser must support an Edit Mode where you can delete themes and where you can access some UI (i.e. a button or image in each row) which will bring up a Theme Editor UI for that theme modally (i.e. via sheet or popover).
+- [x] The Theme Editor must use a Form.
 - [ ] In the Theme Editor, allow the user to edit the name of the theme, to add emoji to the theme, to remove emoji from the theme and to specify how many cards are in the theme. (It is Extra Credit to be able to edit the color of the theme.)
-- [ ] The themes must be persistent (i.e. relaunching your app should not cause all the theme editing you’ve done to be lost).
-- [ ] Your UI should work and look nice on both iPhone and iPad.
-- [ ] Get your application work on a physical iOS device of your choice.
+- [x] The themes must be persistent (i.e. relaunching your app should not cause all the theme editing you’ve done to be lost).
+- [x] Your UI should work and look nice on both iPhone and iPad.
+- [x] Get your application work on a physical iOS device of your choice.
