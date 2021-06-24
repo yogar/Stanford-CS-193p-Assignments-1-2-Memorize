@@ -25,12 +25,9 @@ class ThemesStore: ObservableObject {
             self.themes = []
         }
         autosaveCancellable = $themes.sink { themes in
-            UserDefaults.standard.set(self.themesJson, forKey: defaultsKey)
+            let themesJson = try? JSONEncoder().encode(themes)
+            UserDefaults.standard.set(themesJson, forKey: defaultsKey)
         }
-    }
-    
-    private var themesJson: Data? {
-        return try? JSONEncoder().encode(themes)
     }
     
     func removeTheme(theme: Theme) {
@@ -62,7 +59,7 @@ class ThemesStore: ObservableObject {
         }
     }
     
-    func removeEmoji(_ emojiToRemove: String,to theme: Theme) {
+    func removeEmoji(_ emojiToRemove: String,from theme: Theme) {
         guard theme.emojis.count < 3 else { return }
         if let themeIndex = themes.firstIndex(matching: theme){
             if let emojiIndex = themes[themeIndex].emojis.firstIndex(of: emojiToRemove) {
