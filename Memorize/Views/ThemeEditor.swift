@@ -12,6 +12,9 @@ struct ThemeEditor: View {
     @Binding var isShowing: Bool
     @Binding var theme: Theme
     @State var emojisToAdd: String = ""
+    
+    private let colors: [Color] = [.orange, .red, .gray, .pink,
+                           .yellow, .purple]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -30,7 +33,7 @@ struct ThemeEditor: View {
                     cardCount
                 }
                 Section (header: Text("Color")) {
-                    EmptyView()
+                    themeColor
                 }
             }
         }
@@ -101,12 +104,27 @@ struct ThemeEditor: View {
             Text("\(theme.numberOfPairsOfCards)")
         }
     }
+    
+    
+    var themeColor: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 50, maximum: 80), spacing: 5)]) {
+            ForEach(colors, id: \.self) { value in
+                ZStack {
+                        Rectangle()
+                            .fill(value)
+                            .cornerRadius(5)
+                            .aspectRatio(0.75, contentMode: .fit)
+                            .onTapGesture {
+                                theme.color = value.description
+                            }
+                        if theme.color == value.description {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(.white)
+                        }
+                }
+            }
+        }
+        .padding([.vertical])
+    }
+    
 }
-
-
-//                    Grid(emojis.map { String($0) }, id: \.self) { emoji in
-//                        Text(emoji)
-//                            .onTapGesture {
-//                                themeChooser.removeEmoji(theme, emojiToRemove: emoji)
-//                            }
-//                        }

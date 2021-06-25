@@ -24,7 +24,7 @@ class ThemesStore: ObservableObject {
         } else {
             self.themes = []
         }
-        self.themes.append(Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"))
+//        self.themes.append(Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"))
         autosaveCancellable = $themes.sink { themes in
             let themesJson = try? JSONEncoder().encode(themes)
             UserDefaults.standard.set(themesJson, forKey: defaultsKey)

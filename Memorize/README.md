@@ -34,7 +34,7 @@ many cards in the theme and some sampling of the emoji in the theme.
 - [x] Provide some UI to add a new theme to the List in your chooser.
 - [x] The chooser must support an Edit Mode where you can delete themes and where you can access some UI (i.e. a button or image in each row) which will bring up a Theme Editor UI for that theme modally (i.e. via sheet or popover).
 - [x] The Theme Editor must use a Form.
-- [ ] In the Theme Editor, allow the user to edit the name of the theme, to add emoji to the theme, to remove emoji from the theme and to specify how many cards are in the theme. (It is Extra Credit to be able to edit the color of the theme.)
+- [x] In the Theme Editor, allow the user to edit the name of the theme, to add emoji to the theme, to remove emoji from the theme and to specify how many cards are in the theme. (It is Extra Credit to be able to edit the color of the theme.)
 - [x] The themes must be persistent (i.e. relaunching your app should not cause all the theme editing you’ve done to be lost).
 - [x] Your UI should work and look nice on both iPhone and iPad.
 - [x] Get your application work on a physical iOS device of your choice.

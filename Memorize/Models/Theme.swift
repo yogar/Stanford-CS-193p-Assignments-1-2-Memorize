@@ -14,7 +14,7 @@ struct Theme: Codable, Identifiable, Equatable {
     var numberOfPairsOfCards: Int
     var color: String
     
-    init(id: UUID? = nil, name: String = "New Theme", emojis: Array<String> = ["😛","😘"], numberOfPairsOfCards: Int = 2, color: String = "indigo") {
+    init(id: UUID? = nil, name: String = "New Theme", emojis: Array<String> = ["😛","😘"], numberOfPairsOfCards: Int = 2, color: String = "purple") {
         if let id = id {
             self.id = id
         } else {
