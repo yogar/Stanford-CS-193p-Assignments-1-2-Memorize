@@ -27,7 +27,7 @@ struct ThemeEditor: View {
                     emojis
                 }
                 Section (header: Text("Card count")) {
-                    EmptyView()
+                    cardCount
                 }
                 Section (header: Text("Color")) {
                     EmptyView()
@@ -89,9 +89,16 @@ struct ThemeEditor: View {
             ForEach(theme.emojis, id:\.self) { emoji in
                 Text(emoji).font(.system(size: 30))
                     .onTapGesture {
+                        print(emoji)
                         themesStore.removeEmoji(emoji, from: theme)
                     }
             }
+        }
+    }
+    
+    var cardCount: some View {
+        Stepper(value: $theme.numberOfPairsOfCards, in: 2...theme.emojis.count, step: 1) {
+            Text("\(theme.numberOfPairsOfCards)")
         }
     }
 }

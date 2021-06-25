@@ -24,6 +24,7 @@ class ThemesStore: ObservableObject {
         } else {
             self.themes = []
         }
+        self.themes.append(Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"))
         autosaveCancellable = $themes.sink { themes in
             let themesJson = try? JSONEncoder().encode(themes)
             UserDefaults.standard.set(themesJson, forKey: defaultsKey)
@@ -60,7 +61,8 @@ class ThemesStore: ObservableObject {
     }
     
     func removeEmoji(_ emojiToRemove: String,from theme: Theme) {
-        guard theme.emojis.count < 3 else { return }
+        guard theme.emojis.count > theme.numberOfPairsOfCards else { return }
+        
         if let themeIndex = themes.firstIndex(matching: theme){
             if let emojiIndex = themes[themeIndex].emojis.firstIndex(of: emojiToRemove) {
                 themes[themeIndex].emojis.remove(at: emojiIndex)
@@ -69,25 +71,6 @@ class ThemesStore: ObservableObject {
     }
 }
 
-struct Theme: Codable, Identifiable, Equatable {
-    let id: UUID
-    var name: String
-    var emojis: Array<String>
-    var numberOfPairsOfCards: Int
-    var color: String
-    
-    init(id: UUID? = nil, name: String = "New Theme", emojis: Array<String> = ["😛","😘"], numberOfPairsOfCards: Int = 2, color: String = "indigo") {
-        if let id = id {
-            self.id = id
-        } else {
-            self.id = UUID()
-        }
-        self.name = name
-        self.emojis = emojis
-        self.numberOfPairsOfCards = numberOfPairsOfCards
-        self.color = color
-    }
-}
 
 //                        themes.append(Theme(name: "Food",emojis: ["🍛","🌭","🍤","🍜"], numberOfPairsOfCards: 4, color: "orange"))
 //                        themes.append(Theme(name: "Emotions",emojis: ["😛","😘","😒","😫","😡","🤔"], numberOfPairsOfCards: 5, color: "yellow"))
